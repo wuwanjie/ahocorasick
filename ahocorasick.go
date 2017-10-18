@@ -43,10 +43,6 @@ func (m *Machine) Build(keywords [][]rune) (err error) {
 	queue := make([](*godarts.LinkedListTrieNode), 0)
 	m.Failure = make([]int, len(m.Trie.Base))
 	for _, c := range trie.Root.Children {
-		// 结束节点的Base值为 END_NODE_BASE -1
-		if c.Base < 0 {
-			continue
-		}
 		m.Failure[c.Base] = godarts.ROOT_NODE_BASE
 	}
 	queue = append(queue, trie.Root.Children...)

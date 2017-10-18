@@ -50,8 +50,8 @@ func TestMultiPatternSearchEnglish(t *testing.T) {
 	}
 	m := new(Machine)
 	m.Build(keywords)
-	//m.PrintFailure()
-	//m.PrintOutput()
+	m.PrintFailure()
+	m.PrintOutput()
 
 	content := []rune("ushers")
 	terms := m.MultiPatternSearch(content, false)
