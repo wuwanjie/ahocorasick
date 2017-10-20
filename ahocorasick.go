@@ -138,6 +138,10 @@ func (m *Machine) MultiPatternSearch(content []rune, returnImmediately bool) [](
 	start:
 		if m.g(state, c) == FAIL_STATE {
 			state = m.f(state)
+			// failure不应该有0的状态呢
+			if state == 0 {
+				break
+			}
 			goto start
 		} else {
 			state = m.g(state, c)
